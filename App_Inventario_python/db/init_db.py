@@ -178,6 +178,15 @@ def registrar_usuario(nombre, numero_empleado, contrasena):
     finally:
         conn.close()
 
+# Función para validar usuario (login)
+def validar_usuario(numero_empleado, contrasena):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM usuarios WHERE numero_empleado = ? AND contrasena = ?', (numero_empleado, contrasena))
+    usuario = cursor.fetchone()
+    conn.close()
+    return usuario is not None
+
 if __name__ == "__main__":
     init_db()
     inicializar_procesos()

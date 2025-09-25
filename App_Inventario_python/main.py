@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from ui.inicio_sesion import LoginWindow
 from ui.main_window import MainWindow
